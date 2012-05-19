@@ -1,0 +1,41 @@
+
+Caja abre una mesa
+
+Caja cierra una mesa
+	Se crea un movimiento en el flujo de caja
+
+Caja registra un pago
+	Se crea un movimiento en el flujo de caja
+	
+Caja agrega un item a una mesa
+	Ese item se informa segun su state.
+	
+Caja quita un item de una mesa
+
+Admin edita items de la carta
+Admin edita guarnicionies del item
+Admm agrega variantes de ingredientes al item
+Admin a
+Admin cambia categoría de item
+
+Caja cierra la caja
+
+Caja edita el precio de un item en una mesa
+Caja aplica cambia el precio total de una mesa
+
+Caja edita un salon
+Caja edita una mesa en un salon
+
+Caja cambia una mesa a otra
+
+Caja separa items para incorporarlos a otra  mesa
+
+Caja cancela una orden de cocina
+Caja cancela un item de una orden de cocina
+
+Caja consulta el historial de cobros del dia
+Caja consulta el historial de cobros viejos
+
+Caja anula una mesa cobrada
+Caja anula una mesa abierta
+
