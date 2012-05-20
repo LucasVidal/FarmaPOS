@@ -11,14 +11,6 @@ public class FreeState extends AbstractTableState {
 
 	@Override
 	public AbstractTableState openTable() {
-		return this;
+		return new OpenState();
 	}
-	
-	@Override
-	public boolean isOpen()
-	{
-		return true;
-	}
-	
-	
 }

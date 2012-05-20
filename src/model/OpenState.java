@@ -8,4 +8,10 @@ public class OpenState extends AbstractTableState{
 	public Color getColor() {
 		return Color.BLUE;
 	}
+	
+	@Override
+	public boolean isOpen()
+	{
+		return true;
+	}
 }

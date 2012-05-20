@@ -53,17 +53,19 @@ public class TableOperationsTest extends TableTestSuite{
 		assertTrue(t2.isOpen());
 		
 		t2.close(PayMethod.CASH);
+		
+		assertFalse(t2.isOpen());
 	}
 
-	/*@Test
-	public void cashierClosesATableWithDebitCardSuccessfullyTest()
-	{
-		
-	}
-	
 	@Test
-	public void cashierClosesATableWithCashSuccessfullyTest()
+	public void cashierClosesATableWithDebitCardSuccessfullyTest() throws CouldNotOpenTableException
 	{
+		t2.setState(new FreeState());
+		t2.open();
+		assertTrue(t2.isOpen());
 		
-	}*/
+		t2.close(PayMethod.DEBIT_CARD);
+		
+		assertFalse(t2.isOpen());
+	}
 }

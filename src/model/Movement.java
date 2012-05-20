@@ -1,19 +1,13 @@
 package model;
 
-public class Movement {
+public abstract class Movement {
 
-	private CashMovements movementType;
-	private Double amount;
-	private PayMethod payMethod;
+	protected Double amount;
 	
 	
-	public Movement(CashMovements movementType, Double amount,
-			PayMethod payMethod) {
-		super();
-		this.movementType = movementType;
-		this.amount = amount;
-		this.payMethod = payMethod;
+	public Movement() {
 	}
-	
-	
+
+	public abstract Double getGrossValue();
+
 }

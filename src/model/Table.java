@@ -104,7 +104,7 @@ public class Table {
 	public void close(PayMethod payMethod) {
 		
 		Cash.getInstance().registerSell(this.getAmount(), payMethod);
-		this.state=new FreeState();		
+		this.state=new FreeState();
 	}
 
 

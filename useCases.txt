@@ -1,8 +1,6 @@
 * Caja abre una mesa
-
- 
-Caja cierra una mesa
-	Se crea un movimiento en el flujo de caja
+*Caja cierra una mesa
+*	Se crea un movimiento en el flujo de caja
 
 Caja registra un pago
 	Se crea un movimiento en el flujo de caja

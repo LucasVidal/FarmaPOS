@@ -6,21 +6,30 @@ import java.util.List;
 /** Hope it does not becomes a god object! */
 public class Comerce {
 	private static List<Room> rooms;
+	private static List<Provider> providers;
 	
 	public static List<Room> getRooms()
 	{
 		if (rooms == null)
-			Comerce.setRooms(new ArrayList<Room>());
+			rooms= new ArrayList<Room>();
 		
 		return rooms;
-	}
-
-	private static void setRooms(List<Room> rooms) {
-		Comerce.rooms=rooms;
 	}
 	
 	public static void addRoom(Room r)
 	{
-		Comerce.rooms.add(r);
+		Comerce.getRooms().add(r);
+	}
+
+	public static void addProvider(Provider p)
+	{
+		Comerce.getProviders().add(p);
+	}
+	
+	public static List<Provider> getProviders() {
+		if (providers ==null)
+			providers = new ArrayList<Provider>();
+		
+		return providers;
 	}
 }
