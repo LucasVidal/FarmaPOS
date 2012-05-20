@@ -1,3 +1,4 @@
+package suite;
 import static org.junit.Assert.*;
 
 import javax.xml.ws.ServiceMode;
