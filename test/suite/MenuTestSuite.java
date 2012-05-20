@@ -1,12 +1,13 @@
 package suite;
 
+import junit.framework.TestSuite;
 import model.Category;
 import model.Item;
 import model.KitchenPrinter;
 
 import org.junit.BeforeClass;
 
-public class MenuTestSuite {
+public class MenuTestSuite extends TestSuite {
 
 	private static KitchenPrinter kitchenPrinter1;
 

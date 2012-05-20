@@ -9,4 +9,16 @@ public class FreeState extends AbstractTableState {
 		return Color.GREEN;
 	}
 
+	@Override
+	public AbstractTableState openTable() {
+		return this;
+	}
+	
+	@Override
+	public boolean isOpen()
+	{
+		return true;
+	}
+	
+	
 }

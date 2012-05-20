@@ -6,14 +6,6 @@ public class Measures {
 	private Integer width;
 	private Integer height;
 	
-	public Measures()
-	{
-		super();
-		this.x=1;
-		this.y=1;
-		this.width=10;
-		this.height=10;
-	}
 	
 	public Integer getX() {
 		return x;
@@ -38,5 +30,14 @@ public class Measures {
 	}
 	public void setHeight(Integer height) {
 		this.height = height;
+	}
+
+	public static Measures getDefaultLocation() {
+		Measures m = new Measures();
+		m.x=1;
+		m.y=1;
+		m.width=10;
+		m.height=10;
+		return m;
 	}
 }

@@ -5,6 +5,15 @@ public class ItemOnTable {
 	private Double quantity;
 	private Double price;
 
+	
+	
+	public ItemOnTable(Item item, Double quantity, Double price) {
+		super();
+		this.item = item;
+		this.quantity = quantity;
+		this.price = price;
+	}
+	
 	public Item getItem() {
 		return item;
 	}
