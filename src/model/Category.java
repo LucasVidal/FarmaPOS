@@ -8,6 +8,7 @@ public class Category {
 	private Category parent;
 	private List<Category> children;
 	private String name;
+	private List<Item> items;
 	
 	private static Category rootCategory;
 	
@@ -35,6 +36,7 @@ public class Category {
 		this.parent = parent;
 		this.children = children;
 		this.name = name;
+		this.items = new ArrayList<Item>();
 	}
 
 	public void changeParentTo(Category cat) {
@@ -78,5 +80,10 @@ public class Category {
 		for (Category c: this.getChildren())
 			s.append("\n(hijos de "+this.name+")  "+c.getStringTree());
 		return s.toString();
+	}
+
+	public void addNewItem(Item item) {
+		item.setCategory(this);
+		this.items.add(item);
 	}
 }

@@ -27,12 +27,12 @@ public class Item {
 	}
 	
 	
-	public Item(String name, Double price, Category category,
+	public Item(String name,  Double price,
 			AddingItemObserver addingObservers) {
 		super();
 		this.name = name;
 		this.price = price;
-		this.category = category;
+		this.category = Category.getRootCategory();
 		this.addingObservers = addingObservers;
 	}
 
