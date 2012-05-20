@@ -1,14 +1,10 @@
 package suite;
 
-import static org.junit.Assert.*;
-
 import model.Category;
 import model.Item;
 import model.KitchenPrinter;
 
-import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.Test;
 
 public class MenuTestSuite {
 
