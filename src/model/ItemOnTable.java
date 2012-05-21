@@ -14,6 +14,11 @@ public class ItemOnTable {
 		this.price = price;
 	}
 	
+	public Double getAmount()
+	{
+		return this.price*this.quantity;
+	}
+	
 	public Item getItem() {
 		return item;
 	}
@@ -25,9 +30,6 @@ public class ItemOnTable {
 	}
 	public void setQuantity(Double quantity) {
 		this.quantity = quantity;
-	}
-	public Double getPrice() {
-		return price;
 	}
 	public void setPrice(Double price) {
 		this.price = price;

@@ -1,19 +1,39 @@
 package suite;
 
-import static org.junit.Assert.*;
-import model.ChargingState;
-import model.Comerce;
-import model.FreeState;
-import model.OpenState;
-import model.PayMethod;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
+import model.*;
+
+import org.junit.Before;
 import org.junit.Test;
 
 import exceptions.CouldNotOpenTableException;
+import exceptions.TableIsNotOpenException;
 
 public class TableOperationsTest extends TableTestSuite{
 
 	
+	private Table freeTable;
+	private Room localRoom;
+	private KitchenPrinter impresora;
+	private Item milanga;
+	private Item cervecita;
+	
+	@Before
+	public void initTables()
+	{
+		localRoom = new Room("Salon loco");
+		freeTable=new Table("freeTable");
+		localRoom.addTables(freeTable);
+		
+		impresora = new KitchenPrinter();
+		
+		milanga = new Item("Milanesa de pollo",16.0,impresora);
+		cervecita = new Item("Quilmes cristal",22.0);
+	}
 
 	@Test
 	public void initializingTest()
@@ -29,32 +49,30 @@ public class TableOperationsTest extends TableTestSuite{
 	
 	@Test
 	public void cashierCanOpenATable() {
-		t1.setState(new FreeState());
 		try {
-			t1.open();
+			freeTable.open();
 		} catch (CouldNotOpenTableException e) {
 			fail("Failed: "+e.getMessage());
 		}
-		assertTrue(t1.isOpen());
+		assertTrue(freeTable.isOpen());
 	}
 	
 	@Test(expected = CouldNotOpenTableException.class)
 	public void cashierCantOpenATable() throws CouldNotOpenTableException
 	{
-		t1.setState(new OpenState());
-		t1.open();
+		freeTable.setState(new OpenState());
+		freeTable.open();
 	}
 	
 	@Test
 	public void cashierClosesATableWithCashSuccessfullyTest() throws CouldNotOpenTableException
 	{
-		t2.setState(new FreeState());
-		t2.open();
-		assertTrue(t2.isOpen());
+		freeTable.open();
+		assertTrue(freeTable.isOpen());
 		
-		t2.close(PayMethod.CASH);
+		freeTable.close(PayMethod.CASH);
 		
-		assertFalse(t2.isOpen());
+		assertFalse(freeTable.isOpen());
 	}
 
 	@Test
@@ -67,5 +85,19 @@ public class TableOperationsTest extends TableTestSuite{
 		t2.close(PayMethod.DEBIT_CARD);
 		
 		assertFalse(t2.isOpen());
+	}
+	
+	@Test
+	public void cashierAddAnItemToATableTest() throws TableIsNotOpenException, CouldNotOpenTableException
+	{
+		freeTable.open();
+		freeTable.addItem(milanga, 2.0);
+		
+		assertEquals(new Double(milanga.getPrice() * 2.0),freeTable.getAmount());
+		
+		//Test log occurrence
+		assertEquals(1, freeTable.getActionsLog().size());
+		
+		System.out.println(freeTable.getHistoryString());
 	}
 }

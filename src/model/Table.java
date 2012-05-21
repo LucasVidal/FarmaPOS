@@ -1,11 +1,12 @@
 package model;
 
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import exceptions.CouldNotOpenTableException;
-
 import log.ActionLog;
+import log.AddItemToTableActionLog;
+import exceptions.*;
 
 
 public class Table {
@@ -27,11 +28,6 @@ public class Table {
 		this.actionsLog=new ArrayList<ActionLog>();
 	}
 	
-	
-	public void openTable() throws CouldNotOpenTableException 
-	{
-		
-	}
 	
 	public Table(String name)
 	{
@@ -58,9 +54,22 @@ public class Table {
 		return content;
 	}
 	
-	public void addItem(Item i, Double q)
+	public void addItem(Item i, Double q) throws TableIsNotOpenException
 	{
-		this.content.add(new ItemOnTable(i,q,i.getPrice()));
+		if (!this.isOpen())
+			throw new TableIsNotOpenException();
+		
+		ItemOnTable iot = new ItemOnTable(i,q,i.getPrice());
+		this.content.add(iot);
+		
+		i.notifyItemAdded(iot);
+		
+		this.registerItemAdded(this,iot);
+	}
+
+
+	private void registerItemAdded(Table table, ItemOnTable iot) {
+		this.actionsLog.add(new AddItemToTableActionLog(table, iot));
 	}
 
 
@@ -108,11 +117,21 @@ public class Table {
 	}
 
 
-	private Double getAmount() {
+	public Double getAmount() {
 		Double amount=0.0;
 		for (ItemOnTable i : this.content)
-			amount+=i.getPrice();
+			amount+=i.getAmount();
 		return amount;
+	}
+
+
+	public String getHistoryString() {
+		StringBuilder sb = new StringBuilder("\n\n----"+this.name+" history: ");
+		for (ActionLog al : this.actionsLog)
+			sb.append("\n"+al.getDescription()+" - "+al.getDetail());
+		
+		sb.append("\n----");
+		return sb.toString();
 	}
 
 

@@ -38,4 +38,6 @@ public abstract class ActionLog {
 	public void setTimestamp(Date timestamp) {
 		this.timestamp = timestamp;
 	}
+	
+	public abstract String getDetail();
 }

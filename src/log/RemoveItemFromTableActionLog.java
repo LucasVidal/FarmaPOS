@@ -6,4 +6,9 @@ public class RemoveItemFromTableActionLog extends ActionLog {
 		super(description, RemoveItemFromTableActionLog.class.getName());
 	}
 
+	@Override
+	public String getDetail() {
+		throw new RuntimeException("Not implemented");
+	}
+
 }

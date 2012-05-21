@@ -2,13 +2,14 @@
 *Caja cierra una mesa
 *	Se crea un movimiento en el flujo de caja
 
-Caja registra un pago
-	Se crea un movimiento en el flujo de caja
+*Caja registra un pago
+*	Se crea un movimiento en el flujo de caja
 	
-Caja agrega un item a una mesa
-	Ese item se informa segun su state.
+*Caja agrega un item a una mesa
+*	Ese item se informa segun su strategy de informar.
 	
-Caja quita un item de una mesa
+*Caja quita un item de una mesa
+*	Se registra la modificacion en log
 
 Admin edita items de la carta
 Admin edita guarnicionies del item

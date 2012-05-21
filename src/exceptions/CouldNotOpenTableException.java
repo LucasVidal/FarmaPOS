@@ -1,17 +1,11 @@
 package exceptions;
 
-public class CouldNotOpenTableException extends Exception {
+public class CouldNotOpenTableException extends NotAllowedOperationException {
 
 	public CouldNotOpenTableException()
 	{
 		super("Could not open table");
 	}
-	
-	public CouldNotOpenTableException(String message)
-	{
-		super(message);
-	}
-	
 	
 	/**
 	 * 

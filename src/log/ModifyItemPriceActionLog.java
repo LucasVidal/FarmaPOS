@@ -6,4 +6,9 @@ public class ModifyItemPriceActionLog extends ActionLog {
 		super(description,ModifyItemPriceActionLog.class.getName());
 	}
 
+	@Override
+	public String getDetail() {
+		throw new RuntimeException("Not implemented");
+	}
+
 }

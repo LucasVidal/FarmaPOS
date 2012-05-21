@@ -1,11 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Item {
 
 	private String name;
 	private Double price;
 	private Category category;
-	private AddingItemObserver addingObservers;
+	private List<AddingItemObserver> addingObservers;
 	
 	public String getName() {
 		return name;
@@ -26,14 +29,25 @@ public class Item {
 		this.category = category;
 	}
 	
-	
 	public Item(String name,  Double price,
-			AddingItemObserver addingObservers) {
+			AddingItemObserver ... addingObservers) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.category = Category.getRootCategory();
-		this.addingObservers = addingObservers;
+		
+		this.addingObservers = new ArrayList<AddingItemObserver>();
+		for (AddingItemObserver ao : addingObservers)
+			this.addingObservers.add(ao);
 	}
-
+	
+	/*public Item(String name, Double price)
+	{
+		//this(name,price);
+	}*/
+	
+	public void notifyItemAdded(ItemOnTable iot) {
+		for (AddingItemObserver ao : this.addingObservers)
+			ao.notifyItemAdded(iot);
+	}
 }
