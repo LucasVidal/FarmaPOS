@@ -128,4 +128,24 @@ public class TableOperationsTest extends TableTestSuite{
 		assertEquals(0,freeTable.getContent().size());
 		assertEquals(4, freeTable.getActionsLog().size());
 	}
+	
+	@Test(expected=CantSubstractThatQuantityException.class)
+	public void removeInexistentItemFromTableFailsTest() throws CouldNotOpenTableException, TableIsNotOpenException, CantSubstractThatQuantityException
+	{
+		freeTable.open();
+		freeTable.addItem(milanga, 2.0);
+		freeTable.addItem(milanga, 1.0);
+		
+		freeTable.removeItem(cervecita,1.0);
+	}
+	
+	@Test(expected=CantSubstractThatQuantityException.class)
+	public void removeMoreThanTheTableHaveForOneItemFailsTest() throws CouldNotOpenTableException, TableIsNotOpenException, CantSubstractThatQuantityException
+	{
+		freeTable.open();
+		freeTable.addItem(milanga, 2.0);
+		freeTable.addItem(milanga, 1.0);
+		
+		freeTable.removeItem(milanga,4.0);
+	}
 }
