@@ -1,15 +1,13 @@
 package suite;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import model.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import exceptions.CantSubstractThatQuantityException;
 import exceptions.CouldNotOpenTableException;
 import exceptions.TableIsNotOpenException;
 
@@ -31,7 +29,7 @@ public class TableOperationsTest extends TableTestSuite{
 		
 		impresora = new KitchenPrinter();
 		
-		milanga = new Item("Milanesa de pollo",16.0,impresora);
+		milanga = new Item("Milanesa de pollo",10.0,impresora);
 		cervecita = new Item("Quilmes cristal",22.0);
 	}
 
@@ -88,7 +86,7 @@ public class TableOperationsTest extends TableTestSuite{
 	}
 	
 	@Test
-	public void cashierAddAnItemToATableTest() throws TableIsNotOpenException, CouldNotOpenTableException
+	public void addAnItemToATableTest() throws TableIsNotOpenException, CouldNotOpenTableException
 	{
 		freeTable.open();
 		freeTable.addItem(milanga, 2.0);
@@ -97,7 +95,37 @@ public class TableOperationsTest extends TableTestSuite{
 		
 		//Test log occurrence
 		assertEquals(1, freeTable.getActionsLog().size());
+	}
+	
+	
+	@Test
+	public void parciallyRemoveItemFromTableTest() throws CouldNotOpenTableException, TableIsNotOpenException, CantSubstractThatQuantityException
+	{
+		milanga.setPrice(10.0);
+
+		freeTable.open();
+		freeTable.addItem(milanga, 1.0);
+		freeTable.addItem(milanga, 3.0);
 		
-		System.out.println(freeTable.getHistoryString());
+		freeTable.removeItem(milanga, 2.0);
+		
+		assertEquals(new Double(20.0), freeTable.getAmount());
+		assertEquals(1,freeTable.getContent().size());
+		
+		assertEquals(3, freeTable.getActionsLog().size());
+	}
+	
+	
+	@Test
+	public void totallyRemoveItemFromTableTest() throws CouldNotOpenTableException, TableIsNotOpenException, CantSubstractThatQuantityException
+	{
+		freeTable.open();
+		freeTable.addItem(milanga, 2.0);
+		freeTable.addItem(milanga, 1.0);
+		
+		freeTable.removeItem(milanga, 3.0);
+		
+		assertEquals(0,freeTable.getContent().size());
+		assertEquals(4, freeTable.getActionsLog().size());
 	}
 }

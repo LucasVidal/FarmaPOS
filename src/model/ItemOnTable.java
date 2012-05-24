@@ -16,7 +16,8 @@ public class ItemOnTable {
 	
 	public Double getAmount()
 	{
-		return this.price*this.quantity;
+		//return this.price*this.quantity;
+		return this.price;
 	}
 	
 	public Item getItem() {
@@ -33,5 +34,17 @@ public class ItemOnTable {
 	}
 	public void setPrice(Double price) {
 		this.price = price;
+	}
+
+	public boolean canRemoveQantity(Double quantity) {
+		return this.getQuantity()>=quantity;
+	}
+
+	public void removeQuantity(Double quantity) {
+		Double p = this.price*(1-(quantity/this.quantity));
+
+		this.price=Math.round(p*100.0)/100.0;
+		
+		this.quantity-=quantity;
 	}
 }

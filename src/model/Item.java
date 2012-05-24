@@ -50,4 +50,20 @@ public class Item {
 		for (AddingItemObserver ao : this.addingObservers)
 			ao.notifyItemAdded(iot);
 	}
+	
+	@Override
+	public boolean equals(Object otherItem)
+	{
+		if (otherItem == null) return false;
+	    if (otherItem == this) return true;
+		if (!(otherItem instanceof Item)) return false;
+	    
+		return this.getId().equals(((Item) otherItem).getId());
+	}
+	
+	
+	private String getId() {
+		//TODO: Temporary. Will take ID from database
+		return this.getName();
+	}
 }

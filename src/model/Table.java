@@ -1,12 +1,14 @@
 package model;
 
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import log.ActionLog;
 import log.AddItemToTableActionLog;
-import exceptions.*;
+import log.RemoveItemFromTableActionLog;
+import exceptions.CantSubstractThatQuantityException;
+import exceptions.CouldNotOpenTableException;
+import exceptions.TableIsNotOpenException;
 
 
 public class Table {
@@ -59,19 +61,61 @@ public class Table {
 		if (!this.isOpen())
 			throw new TableIsNotOpenException();
 		
-		ItemOnTable iot = new ItemOnTable(i,q,i.getPrice());
+		ItemOnTable iot = new ItemOnTable(i,q,i.getPrice()*q);
 		this.content.add(iot);
-		
 		i.notifyItemAdded(iot);
+		this.registerItemAdded(iot);
+
+	}
+
+	public void removeItem(Item i, double q) throws TableIsNotOpenException, CantSubstractThatQuantityException {
+		if (!this.isOpen())
+			throw new TableIsNotOpenException();
 		
-		this.registerItemAdded(this,iot);
+		if (this.itemQuantity(i)<q)
+			throw new CantSubstractThatQuantityException();
+			
+		List<ItemOnTable> itemsOnTableToRemove = new ArrayList<ItemOnTable>();
+		
+		for (ItemOnTable iot : this.content)
+		{
+			if (iot.getItem().equals(i) && q>0)
+			{
+				if (iot.getQuantity()<=q)
+				{
+					itemsOnTableToRemove.add(iot);
+					this.registerItemRemoved(iot);
+					q-=iot.getQuantity();
+				}else
+				{
+					iot.removeQuantity(q);
+					q=0;
+				}
+			}
+		}
+		
+		this.content.removeAll(itemsOnTableToRemove);
+		
+	}
+	
+	private Double itemQuantity(Item i) {
+		Double q = new Double(0.0);
+		for (ItemOnTable iot : this.content)
+			if (iot.getItem().equals(i))
+				q+=iot.getQuantity();
+		
+		return q;
 	}
 
 
-	private void registerItemAdded(Table table, ItemOnTable iot) {
-		this.actionsLog.add(new AddItemToTableActionLog(table, iot));
+	private void registerItemAdded(ItemOnTable iot) {
+		this.actionsLog.add(new AddItemToTableActionLog(this, iot));
 	}
 
+	private void registerItemRemoved(ItemOnTable iot)
+	{
+		this.actionsLog.add(new RemoveItemFromTableActionLog(this,iot));
+	}
 
 	public void changeRoom(Room r)
 	{
@@ -133,6 +177,4 @@ public class Table {
 		sb.append("\n----");
 		return sb.toString();
 	}
-
-
 }
