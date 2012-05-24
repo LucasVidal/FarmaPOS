@@ -38,16 +38,16 @@ public class MenuTestSuite extends TestSuite {
 		minutas.addNewItem(new Item("Milanesa de pollo",		8.0,	kitchenPrinter1));
 		minutas.addNewItem(new Item("Fritas", 					1.5,	kitchenPrinter1));
 		
-		bebidas.addNewItem(new Item("Cafe",						8.0,	null));
+		bebidas.addNewItem(new Item("Cafe",						8.0));
 		
-		cervezas.addNewItem(new Item("Quilmes",					8.0,	null));
-		cervezas.addNewItem(new Item("Heineken",				11.5,	null));
-		cervezas.addNewItem(new Item("Stella Artois",			12.0,	null));
+		cervezas.addNewItem(new Item("Quilmes",					8.0	));
+		cervezas.addNewItem(new Item("Heineken",				11.5));
+		cervezas.addNewItem(new Item("Stella Artois",			12.0));
 		
-		cervezasImportadas.addNewItem(new Item("Negra Modelo",	12.0,	null));
+		cervezasImportadas.addNewItem(new Item("Negra Modelo",	12.0));
 		
-		sinAlcohol.addNewItem(new Item("Coca-Cola",				9.5,	null));
-		sinAlcohol.addNewItem(new Item("Agua saborizada",		7.0,	null));
+		sinAlcohol.addNewItem(new Item("Coca-Cola",				9.5));
+		sinAlcohol.addNewItem(new Item("Agua saborizada",		7.0));
 	}
 
 	private static void createCategories() {
