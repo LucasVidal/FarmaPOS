@@ -10,13 +10,13 @@ public class Commerce {
 	
 	private List<Room> rooms;
 	private List<Provider> providers;
-	private List<Table> todayMovements;
+	private List<Table> todaysTables;
 	
 	public Commerce()
 	{
 		this.rooms=new ArrayList<Room>();
 		this.providers=new ArrayList<Provider>();
-		this.todayMovements=new ArrayList<Table>();
+		this.todaysTables=new ArrayList<Table>();
 	}
 	
 	public static Commerce getInstance()
@@ -55,6 +55,10 @@ public class Commerce {
 	}
 	
 	public List<Table> getTodayMovements() {
-		return todayMovements;
+		return todaysTables;
+	}
+
+	public void addTable(Table table) {
+		this.todaysTables.add(table);
 	}
 }

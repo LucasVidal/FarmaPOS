@@ -20,24 +20,10 @@ public class Table {
 	private	Measures location;
 	private List<ActionLog> actionsLog;
 
-	public Table(String name, Room room) {
-		super();
-		this.name = name;
-		this.room = room;
-		this.content=new ArrayList<ItemOnTable>();
-		this.state=AbstractTableState.getDefaultState();
-		this.location=Measures.getDefaultLocation();
-		this.actionsLog=new ArrayList<ActionLog>();
-	}
 	
 	
-	protected Table(String name)
-	{
-		this(name,null);
-	}
-
 	public Table() {
-		this(null,null);
+		super();
 	}
 
 
@@ -168,5 +154,10 @@ public class Table {
 		
 		sb.append("\n----");
 		return sb.toString();
+	}
+
+
+	public void setContent(ArrayList<ItemOnTable> itemsOnTable) {
+		this.content=itemsOnTable;
 	}
 }
