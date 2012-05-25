@@ -10,7 +10,10 @@ import org.junit.Test;
 import controller.TableBuilder;
 
 import exceptions.CantSubstractThatQuantityException;
+import exceptions.CouldNotChargeException;
 import exceptions.CouldNotOpenTableException;
+import exceptions.NotAllowedOperationException;
+import exceptions.TableIsNotChargingException;
 import exceptions.TableIsNotOpenException;
 
 public class TableOperationsTest extends TableTestSuite{
@@ -65,23 +68,25 @@ public class TableOperationsTest extends TableTestSuite{
 	}
 	
 	@Test
-	public void cashierClosesATableWithCashSuccessfullyTest() throws CouldNotOpenTableException
+	public void cashierClosesATableWithCashSuccessfullyTest() throws CouldNotOpenTableException, CouldNotChargeException, TableIsNotChargingException 
 	{
 		freeTable.open();
 		assertTrue(freeTable.isOpen());
 		
+		freeTable.charge();
 		freeTable.close(PayMethod.CASH);
 		
 		assertFalse(freeTable.isOpen());
 	}
 
 	@Test
-	public void cashierClosesATableWithDebitCardSuccessfullyTest() throws CouldNotOpenTableException
+	public void cashierClosesATableWithDebitCardSuccessfullyTest() throws CouldNotOpenTableException, CouldNotChargeException, TableIsNotChargingException  
 	{
 		t2.setState(new FreeState());
 		t2.open();
 		assertTrue(t2.isOpen());
 		
+		t2.charge();
 		t2.close(PayMethod.DEBIT_CARD);
 		
 		assertFalse(t2.isOpen());

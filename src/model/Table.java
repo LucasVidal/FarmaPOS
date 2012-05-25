@@ -6,10 +6,7 @@ import java.util.List;
 import log.ActionLog;
 import log.AddItemToTableActionLog;
 import log.RemoveItemFromTableActionLog;
-import exceptions.CantSubstractThatQuantityException;
-import exceptions.CouldNotOpenTableException;
-import exceptions.TableIsNotOpenException;
-
+import exceptions.*;
 
 public class Table {
 
@@ -20,38 +17,21 @@ public class Table {
 	private	Measures location;
 	private List<ActionLog> actionsLog;
 
+
+	public Measures getLocation() {							return location;					}
+	public AbstractTableState getState() {					return state;						}
+	public List<ItemOnTable> getContent() {					return content;						}
+	public String getName() {										return name;						}
+	public List<ActionLog> getActionsLog() {						return actionsLog;					}
+	public Room getRoom() {											return room;						}
 	
-	
-	public Table() {
-		super();
-	}
+	public void setLocation(Measures location) {					this.location = location;			}
+	public void setName(String name) {								this.name = name;					}
+	public void setState(AbstractTableState state) {				this.state = state;					}
+	public void setActionsLog(List<ActionLog> actionsLog) {			this.actionsLog = actionsLog;		}
+	public void setRoom(Room r) {									this.room=r;						}
+	public void setContent(ArrayList<ItemOnTable> itemsOnTable) {	this.content=itemsOnTable;			}
 
-
-	public Measures getLocation() {
-		return location;
-	}
-
-	public void setLocation(Measures location) {
-		this.location = location;
-	}
-
-	public AbstractTableState getState() {
-		return state;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public void setState(AbstractTableState state) {
-		this.state = state;
-	}
-
-	public List<ItemOnTable> getContent() {
-		return content;
-	}
-	
 	public void addItem(Item i, Double q) throws TableIsNotOpenException
 	{
 		if (!this.isOpen())
@@ -61,7 +41,6 @@ public class Table {
 		this.content.add(iot);
 		i.notifyItemAdded(iot);
 		this.registerItemAdded(iot);
-
 	}
 
 	public void removeItem(Item i, double q) throws TableIsNotOpenException, CantSubstractThatQuantityException {
@@ -81,10 +60,8 @@ public class Table {
 		for (ItemOnTable iot : this.content)
 			if (iot.getItem().equals(i))
 				q+=iot.getQuantity();
-		
 		return q;
 	}
-
 
 	private void registerItemAdded(ItemOnTable iot) {
 		this.actionsLog.add(new AddItemToTableActionLog(this, iot));
@@ -101,41 +78,22 @@ public class Table {
 		this.room=r;
 	}
 	
-	public String getName() {
-		return name;
-	}
-
-	public List<ActionLog> getActionsLog() {
-		return actionsLog;
-	}
-
-	public void setActionsLog(List<ActionLog> actionsLog) {
-		this.actionsLog = actionsLog;
-	}
-
-	public Room getRoom() {
-		return room;
-	}
-
-	public void setRoom(Room r) {
-		this.room=r;
-	}
-
-
 	public void open() throws CouldNotOpenTableException {
 		this.setState(this.state.openTable());
 	}
-
-
+	
+	public void charge() throws CouldNotChargeException {
+		this.setState(this.state.chargeTable());
+	}
+	
 	public boolean isOpen() {
 		return this.state.isOpen();
 	}
 
 
-	public void close(PayMethod payMethod) {
-		
+	public void close(PayMethod payMethod) throws TableIsNotChargingException {
 		Cash.getInstance().registerSell(this.getAmount(), payMethod);
-		this.state=new FreeState();
+		this.setState(this.state.closeTable());
 	}
 
 
@@ -146,7 +104,6 @@ public class Table {
 		return amount;
 	}
 
-
 	public String getHistoryString() {
 		StringBuilder sb = new StringBuilder("\n\n----"+this.name+" history: ");
 		for (ActionLog al : this.actionsLog)
@@ -155,9 +112,5 @@ public class Table {
 		sb.append("\n----");
 		return sb.toString();
 	}
-
-
-	public void setContent(ArrayList<ItemOnTable> itemsOnTable) {
-		this.content=itemsOnTable;
-	}
+	
 }

@@ -9,4 +9,10 @@ public class ChargingState extends AbstractTableState{
 		return Color.RED;
 	}
 
+	@Override
+	public AbstractTableState closeTable()
+	{
+		return new ClosedState();
+	}
+	
 }

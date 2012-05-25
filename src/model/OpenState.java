@@ -14,4 +14,10 @@ public class OpenState extends AbstractTableState{
 	{
 		return true;
 	}
+	
+	@Override
+	public AbstractTableState chargeTable()
+	{
+		return new ChargingState();
+	}
 }
