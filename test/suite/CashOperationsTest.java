@@ -2,7 +2,7 @@ package suite;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 import model.Cash;
-import model.Comerce;
+import model.Commerce;
 import model.PayMethod;
 
 import org.junit.Before;
@@ -15,7 +15,7 @@ public class CashOperationsTest extends CashTestSuite{
 	@Test
 	public void initializationTest()
 	{
-		assertEquals(3,Comerce.getInstance().getProviders().size());
+		assertEquals(3,Commerce.getInstance().getProviders().size());
 	}
 	
 	@Before
@@ -28,8 +28,8 @@ public class CashOperationsTest extends CashTestSuite{
 	@Test
 	public void registerPurchaseTest()
 	{
-		Cash.getInstance().registerPurchase(98.0, 	Comerce.getInstance().getProviders().get(0));
-		Cash.getInstance().registerPurchase(12.0, 	Comerce.getInstance().getProviders().get(1));
+		Cash.getInstance().registerPurchase(98.0, 	Commerce.getInstance().getProviders().get(0));
+		Cash.getInstance().registerPurchase(12.0, 	Commerce.getInstance().getProviders().get(1));
 		
 		assertEquals(new Double(-110.0),Cash.getInstance().getGrossAmount());
 	}
@@ -37,7 +37,7 @@ public class CashOperationsTest extends CashTestSuite{
 	@Test
 	public void movementsTest()
 	{
-		Cash.getInstance().registerPurchase(20.0, 	Comerce.getInstance().getProviders().get(0));
+		Cash.getInstance().registerPurchase(20.0, 	Commerce.getInstance().getProviders().get(0));
 		Cash.getInstance().registerSell(50.0, PayMethod.CASH);
 		
 		assertEquals(new Double(30.0),Cash.getInstance().getGrossAmount());

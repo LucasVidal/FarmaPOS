@@ -16,7 +16,8 @@ public class TableBuilder {
 		this.table.setName(name);
 		return this;
 	}
-	
+	/**
+	 * Builds the table and registers it into the commerce collection*/
 	public Table build()
 	{
 		return table;

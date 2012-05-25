@@ -38,7 +38,7 @@ public class TableOperationsTest extends TableTestSuite{
 	@Test
 	public void initializingTest()
 	{
-		assertEquals(3,Comerce.getInstance().getRooms().size());
+		assertEquals(3,Commerce.getInstance().getRooms().size());
 		
 		assertEquals(4,room1.getTables().size());
 		assertEquals(3,room2.getTables().size());

@@ -3,7 +3,7 @@ package suite;
 import java.util.List;
 
 import junit.framework.TestSuite;
-import model.Comerce;
+import model.Commerce;
 import model.Provider;
 import model.Room;
 import model.Table;
@@ -22,9 +22,9 @@ public class CashTestSuite extends TestSuite {
 	}
 
 	private static void initializeProviders() {
-		Comerce.getInstance().addProvider(new Provider("Pablo"));
-		Comerce.getInstance().addProvider(new Provider("Coca-Cola"));
-		Comerce.getInstance().addProvider(new Provider("Quilmes"));
+		Commerce.getInstance().addProvider(new Provider("Pablo"));
+		Commerce.getInstance().addProvider(new Provider("Coca-Cola"));
+		Commerce.getInstance().addProvider(new Provider("Quilmes"));
 	}
 
 	private static void initializeCash() {

@@ -1,7 +1,7 @@
 package suite;
 
 import junit.framework.TestSuite;
-import model.Comerce;
+import model.Commerce;
 import model.Room;
 import model.Table;
 
@@ -36,9 +36,9 @@ public class TableTestSuite extends TestSuite {
 		room2=new Room("Sala 2");
 		room3=new Room("Sala 3");
 		
-		Comerce.getInstance().getRooms().add(room1);
-		Comerce.getInstance().getRooms().add(room2);
-		Comerce.getInstance().getRooms().add(room3);
+		Commerce.getInstance().getRooms().add(room1);
+		Commerce.getInstance().getRooms().add(room2);
+		Commerce.getInstance().getRooms().add(room3);
 	}
 	
 	private static void initializeTables()
