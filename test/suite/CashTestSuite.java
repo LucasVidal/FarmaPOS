@@ -22,9 +22,9 @@ public class CashTestSuite extends TestSuite {
 	}
 
 	private static void initializeProviders() {
-		Comerce.addProvider(new Provider("Pablo"));
-		Comerce.addProvider(new Provider("Coca-Cola"));
-		Comerce.addProvider(new Provider("Quilmes"));
+		Comerce.getInstance().addProvider(new Provider("Pablo"));
+		Comerce.getInstance().addProvider(new Provider("Coca-Cola"));
+		Comerce.getInstance().addProvider(new Provider("Quilmes"));
 	}
 
 	private static void initializeCash() {

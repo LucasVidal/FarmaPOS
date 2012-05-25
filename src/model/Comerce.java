@@ -5,31 +5,56 @@ import java.util.List;
 
 /** Hope it does not becomes a god object! */
 public class Comerce {
-	private static List<Room> rooms;
-	private static List<Provider> providers;
 	
-	public static List<Room> getRooms()
+	private static Comerce INSTANCE;
+	
+	private List<Room> rooms;
+	private List<Provider> providers;
+	private List<Table> todayMovements;
+	
+	public Comerce()
 	{
-		if (rooms == null)
-			rooms= new ArrayList<Room>();
+		this.rooms=new ArrayList<Room>();
+		this.providers=new ArrayList<Provider>();
+		this.todayMovements=new ArrayList<Table>();
+	}
+	
+	public static Comerce getInstance()
+	{
+		if (INSTANCE==null)
+			INSTANCE=new Comerce();
 		
+		return INSTANCE;
+	}
+	
+	public List<Room> getRooms()
+	{
 		return rooms;
 	}
 	
-	public static void addRoom(Room r)
+	public void addRoom(Room r)
 	{
-		Comerce.getRooms().add(r);
+		INSTANCE.getRooms().add(r);
 	}
 
-	public static void addProvider(Provider p)
+	public static Comerce getINSTANCE() {
+		return INSTANCE;
+	}
+
+	public static void setINSTANCE(Comerce iNSTANCE) {
+		INSTANCE = iNSTANCE;
+	}
+
+	public void addProvider(Provider p)
 	{
-		Comerce.getProviders().add(p);
+		this.getProviders().add(p);
 	}
 	
-	public static List<Provider> getProviders() {
-		if (providers ==null)
-			providers = new ArrayList<Provider>();
-		
+	public List<Provider> getProviders() {
 		return providers;
+	}
+	
+	public List<Table> getTodayMovements() {
+		return todayMovements;
 	}
 }

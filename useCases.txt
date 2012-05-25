@@ -17,7 +17,7 @@ Admm agrega variantes de ingredientes al item
 Admin a
 Admin cambia categoría de item
 
-Caja cierra la caja
+->Caja cierra la caja
 
 Caja edita el precio de un item en una mesa
 Caja aplica cambia el precio total de una mesa

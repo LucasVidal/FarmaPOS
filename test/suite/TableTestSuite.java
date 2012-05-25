@@ -7,6 +7,8 @@ import model.Table;
 
 import org.junit.BeforeClass;
 
+import controller.TableBuilder;
+
 public class TableTestSuite extends TestSuite {
 
 	protected static Room room1;
@@ -34,26 +36,26 @@ public class TableTestSuite extends TestSuite {
 		room2=new Room("Sala 2");
 		room3=new Room("Sala 3");
 		
-		Comerce.getRooms().add(room1);
-		Comerce.getRooms().add(room2);
-		Comerce.getRooms().add(room3);
+		Comerce.getInstance().getRooms().add(room1);
+		Comerce.getInstance().getRooms().add(room2);
+		Comerce.getInstance().getRooms().add(room3);
 	}
 	
 	private static void initializeTables()
 	{
-		t1 = 	new Table("1");
-		t2 = 	new Table("2");
-		t3 = 	new Table("3");
-		t4 = 	new Table("4");
+		t1 = 	new TableBuilder().withName("1").build();
+		t2 = 	new TableBuilder().withName("2").build();
+		t3 = 	new TableBuilder().withName("3").build();
+		t4 = 	new TableBuilder().withName("4").build();
 		room1.addTables(t1,t2,t3,t4);
 		
-		t10 = 	new Table("10");
-		t11 = 	new Table("11");
-		t12 = 	new Table("12");
+		t10 = 	new TableBuilder().withName("10").build();
+		t11 = 	new TableBuilder().withName("11").build();
+		t12 = 	new TableBuilder().withName("12").build();
 		room2.addTables(t10,t11,t12);
 		
-		t21 = 	new Table("21");
-		t22 = 	new Table("22");
+		t21 = 	new TableBuilder().withName("21").build();
+		t22 = 	new TableBuilder().withName("22").build();
 		room3.addTables(t21,t22);
 	}
 }

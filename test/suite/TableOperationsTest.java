@@ -7,6 +7,8 @@ import model.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import controller.TableBuilder;
+
 import exceptions.CantSubstractThatQuantityException;
 import exceptions.CouldNotOpenTableException;
 import exceptions.TableIsNotOpenException;
@@ -24,7 +26,7 @@ public class TableOperationsTest extends TableTestSuite{
 	public void initTables()
 	{
 		localRoom = new Room("Salon loco");
-		freeTable=new Table("freeTable");
+		freeTable=new TableBuilder().withName("freeTable").build();
 		localRoom.addTables(freeTable);
 		
 		impresora = new KitchenPrinter();
@@ -36,7 +38,7 @@ public class TableOperationsTest extends TableTestSuite{
 	@Test
 	public void initializingTest()
 	{
-		assertEquals(3,Comerce.getRooms().size());
+		assertEquals(3,Comerce.getInstance().getRooms().size());
 		
 		assertEquals(4,room1.getTables().size());
 		assertEquals(3,room2.getTables().size());
@@ -110,8 +112,6 @@ public class TableOperationsTest extends TableTestSuite{
 		freeTable.removeItem(milanga, 2.0);
 		
 		assertEquals(new Double(20.0), freeTable.getAmount());
-		assertEquals(1,freeTable.getContent().size());
-		
 		assertEquals(3, freeTable.getActionsLog().size());
 	}
 	
@@ -119,14 +119,16 @@ public class TableOperationsTest extends TableTestSuite{
 	@Test
 	public void totallyRemoveItemFromTableTest() throws CouldNotOpenTableException, TableIsNotOpenException, CantSubstractThatQuantityException
 	{
+		milanga.setPrice(10.0);
+
 		freeTable.open();
 		freeTable.addItem(milanga, 2.0);
 		freeTable.addItem(milanga, 1.0);
 		
 		freeTable.removeItem(milanga, 3.0);
 		
-		assertEquals(0,freeTable.getContent().size());
-		assertEquals(4, freeTable.getActionsLog().size());
+		assertEquals(new Double(0.0),freeTable.getAmount());
+		assertEquals(3, freeTable.getActionsLog().size());
 	}
 	
 	@Test(expected=CantSubstractThatQuantityException.class)

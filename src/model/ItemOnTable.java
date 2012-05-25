@@ -14,10 +14,12 @@ public class ItemOnTable {
 		this.price = price;
 	}
 	
+	/**
+	 * Returns the gross amount for that item, negative if discounted. 
+	 * */
 	public Double getAmount()
 	{
-		//return this.price*this.quantity;
-		return this.price;
+		return Math.signum(this.quantity) *this.price;
 	}
 	
 	public Item getItem() {

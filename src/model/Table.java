@@ -31,10 +31,15 @@ public class Table {
 	}
 	
 	
-	public Table(String name)
+	protected Table(String name)
 	{
 		this(name,null);
 	}
+
+	public Table() {
+		this(null,null);
+	}
+
 
 	public Measures getLocation() {
 		return location;
@@ -47,6 +52,11 @@ public class Table {
 	public AbstractTableState getState() {
 		return state;
 	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 
 	public void setState(AbstractTableState state) {
 		this.state = state;
@@ -74,28 +84,10 @@ public class Table {
 		
 		if (this.itemQuantity(i)<q)
 			throw new CantSubstractThatQuantityException();
-			
-		List<ItemOnTable> itemsOnTableToRemove = new ArrayList<ItemOnTable>();
 		
-		for (ItemOnTable iot : this.content)
-		{
-			if (iot.getItem().equals(i) && q>0)
-			{
-				if (iot.getQuantity()<=q)
-				{
-					itemsOnTableToRemove.add(iot);
-					this.registerItemRemoved(iot);
-					q-=iot.getQuantity();
-				}else
-				{
-					iot.removeQuantity(q);
-					q=0;
-				}
-			}
-		}
-		
-		this.content.removeAll(itemsOnTableToRemove);
-		
+		ItemOnTable iot = new ItemOnTable(i, -1 *q,i.getPrice()*q);
+		this.content.add(iot);
+		this.registerItemRemoved(iot);
 	}
 	
 	private Double itemQuantity(Item i) {
