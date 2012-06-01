@@ -7,8 +7,6 @@ import exceptions.*;
 public abstract class AbstractTableState {
 
 	public abstract Color getColor();
-	protected static AbstractTableState INSTANCE;	
-
 	
 	public static AbstractTableState getDefaultState() {
 		return new FreeState();

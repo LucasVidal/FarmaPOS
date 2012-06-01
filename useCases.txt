@@ -37,4 +37,3 @@ Caja consulta el historial de cobros viejos
 
 Caja anula una mesa cobrada
 Caja anula una mesa abierta
-

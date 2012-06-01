@@ -19,7 +19,7 @@ public class Item {
 	public Double getPrice() {
 		return price;
 	}
-	public void setPrice(Double price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	public Category getCategory() {

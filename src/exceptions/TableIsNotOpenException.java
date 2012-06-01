@@ -1,6 +1,11 @@
 package exceptions;
 
-public class TableIsNotOpenException extends Exception {
+public class TableIsNotOpenException extends NotAllowedOperationException {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public TableIsNotOpenException ()
 	{

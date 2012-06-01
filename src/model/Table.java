@@ -32,7 +32,7 @@ public class Table {
 	public void setRoom(Room r) {									this.room=r;						}
 	public void setContent(ArrayList<ItemOnTable> itemsOnTable) {	this.content=itemsOnTable;			}
 
-	public void addItem(Item i, Double q) throws TableIsNotOpenException
+	public void addItem(Item i, double q) throws TableIsNotOpenException
 	{
 		if (!this.isOpen())
 			throw new TableIsNotOpenException();
@@ -92,7 +92,7 @@ public class Table {
 
 
 	public void close(PayMethod payMethod) throws TableIsNotChargingException {
-		Cash.getInstance().registerSell(this.getAmount(), payMethod);
+		Commerce.getInstance().getCurrentCash().registerSell(this.getAmount(), payMethod);
 		this.setState(this.state.closeTable());
 	}
 

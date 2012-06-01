@@ -1,16 +1,28 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class Cash {
 
+	public enum Status
+	{
+		OPEN,CLOSED,NOT_STARTED;
+	}
+	
 	private List<Movement> movements;
 
 	private Double initialValue;
+	private Double endedValue;
 	
+	private Day day;
 	private static Cash INSTANCE=null;
 	
+	public Day getDay() {
+		return day;
+	}
+
 	public void registerPurchase(Double amount, Provider provider) {
 		this.getMovements().add(new PurchaseMovement(amount, provider));
 	}
@@ -19,22 +31,8 @@ public class Cash {
 		
 		this.getMovements().add(new SellMovement(amount, payMethod));
 	}
-
-	public static Cash getInstance()
-	{
-		if (INSTANCE==null)
-		{
-			INSTANCE=new Cash();
-			INSTANCE.initialValue=0.0;
-		}
-		
-		return INSTANCE;
-	}
 	
 	private List<Movement> getMovements() {
-		if (this.movements==null)
-			this.resetMovements();
-		
 		return this.movements;
 	}
 
@@ -47,7 +45,7 @@ public class Cash {
 	}
 
 	public Double getGrossAmount() {
-		Double gross=0.0;
+		Double gross=this.initialValue;
 		
 		for (Movement m : this.getMovements())
 			gross+=m.getGrossValue();
@@ -55,5 +53,21 @@ public class Cash {
 		return gross;
 	}
 
+	public void close(Double cashAmount) {
+		this.endedValue=cashAmount;
+	}
 
+	public Double getDifference()
+	{
+		return this.getGrossAmount()-this.endedValue;
+	}
+
+	public static Cash createCash(Date date) {
+		Cash cash=new Cash();
+		cash.initialValue=0.0;
+		cash.resetMovements();
+		cash.day=new Day(date);
+				
+		return cash;
+	}
 }
