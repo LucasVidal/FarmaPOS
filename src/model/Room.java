@@ -20,8 +20,6 @@ public class Room {
 		this(name,new ArrayList<Table>());
 	}
 
-
-
 	public List<Table> getTables() {
 		return tables;
 	}
@@ -41,6 +39,10 @@ public class Room {
 			this.tables.add(t);
 			t.setRoom(this);
 		}
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	

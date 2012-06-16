@@ -28,16 +28,18 @@ public class Measures {
 	public Integer getHeight() {
 		return height;
 	}
+	public Measures(Integer x, Integer y, Integer width, Integer height) {
+		super();
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+	}
 	public void setHeight(Integer height) {
 		this.height = height;
 	}
 
 	public static Measures getDefaultLocation() {
-		Measures m = new Measures();
-		m.x=1;
-		m.y=1;
-		m.width=10;
-		m.height=10;
-		return m;
+		return new Measures(1,1,10,10);
 	}
 }

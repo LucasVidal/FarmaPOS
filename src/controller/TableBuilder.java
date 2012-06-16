@@ -7,6 +7,7 @@ import model.AbstractTableState;
 import model.Commerce;
 import model.ItemOnTable;
 import model.Measures;
+import model.Room;
 import model.Table;
 
 public class TableBuilder {
@@ -24,6 +25,18 @@ public class TableBuilder {
 		t.setActionsLog(new ArrayList<ActionLog>());
 		
 		this.table=t;
+	}
+	
+	public TableBuilder withLocation(Measures m)
+	{
+		this.table.setLocation(m);
+		return this;
+	}
+	
+	public TableBuilder withRoom(Room room)
+	{
+		this.table.setRoom(room);
+		return this;
 	}
 	
 	public TableBuilder withName(String name)
