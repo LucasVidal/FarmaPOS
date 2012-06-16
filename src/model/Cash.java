@@ -15,6 +15,7 @@ public class Cash {
 
 	private Double initialValue;
 	private Double endedValue;
+	private Status status;
 	
 	private Day day;
 	private static Cash INSTANCE=null;
@@ -67,7 +68,7 @@ public class Cash {
 		cash.initialValue=0.0;
 		cash.resetMovements();
 		cash.day=new Day(date);
-				
+		cash.status=Status.OPEN;
 		return cash;
 	}
 }

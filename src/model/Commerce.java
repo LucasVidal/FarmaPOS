@@ -37,7 +37,6 @@ public class Commerce {
 		return cashes;
 	}
 
-	
 	public List<Room> getRooms()
 	{
 		return rooms;
