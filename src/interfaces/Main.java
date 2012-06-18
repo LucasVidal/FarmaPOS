@@ -1,13 +1,13 @@
 package interfaces;
 
-import java.util.ArrayList;
-import java.util.List;
+import interfaces.views.MainWindow;
 
 import javax.swing.SwingUtilities;
 
+import model.Commerce;
+import model.Measures;
+import model.Room;
 import controller.TableBuilder;
-
-import model.*;
 
 public class Main {
 
@@ -16,8 +16,8 @@ public class Main {
 		
 		SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
+				@SuppressWarnings("unused")
 				MainWindow mainWindow = new MainWindow();
-				mainWindow.loadTables();
 			}
 		});
 	}

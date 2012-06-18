@@ -112,5 +112,8 @@ public class Table {
 		sb.append("\n----");
 		return sb.toString();
 	}
+	public String getId() { //temporary
+		return this.name;
+	}
 	
 }
