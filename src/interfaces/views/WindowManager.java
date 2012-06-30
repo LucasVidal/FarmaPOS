@@ -1,8 +1,15 @@
 package interfaces.views;
 
-import javax.swing.SwingUtilities;
+import java.awt.Dimension;
+
+import model.Table;
 
 public class WindowManager {
+	
+	public static int MAX_X = 1280;
+	public static int MAX_Y = 800;
+	public static Dimension MAX_WINDOW_DIMENSION = new Dimension(MAX_X,MAX_Y);
+	public static Dimension TABLE_DETAIL_WINDOW_DIMENSION = new Dimension(MAX_X,MAX_Y);
 
 	private static WindowManager INSTANCE;
 
@@ -12,13 +19,9 @@ public class WindowManager {
 		return INSTANCE;
 	}
 
-	public void createTableDetailsView(final String tableReference) {
-		SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				@SuppressWarnings("unused")
-				TableDetailWindow tableDetailWindow = new TableDetailWindow(tableReference);
-			}
-		});
+	public void createTableDetailsView(final Table tableReference) {
+		@SuppressWarnings("unused")
+		TableDetailWindow tableDetailWindow = new TableDetailWindow(tableReference);
 	}
 	
 }

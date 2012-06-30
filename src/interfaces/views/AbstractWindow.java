@@ -12,4 +12,14 @@ public abstract class AbstractWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public AbstractWindow()
+	{
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLocationByPlatform(true);
+
+		setSize(WindowManager.MAX_WINDOW_DIMENSION);
+		
+		this.setResizable(false);
+		this.setLayout(null);
+	}
 }

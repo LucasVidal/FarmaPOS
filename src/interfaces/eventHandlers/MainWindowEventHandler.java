@@ -4,6 +4,8 @@ import interfaces.views.WindowManager;
 
 import java.awt.event.ActionEvent;
 
+import db.daos.TableDAO;
+
 public class MainWindowEventHandler extends AbstractEventHandler {
 
 	private static MainWindowEventHandler INSTANCE;
@@ -16,6 +18,6 @@ public class MainWindowEventHandler extends AbstractEventHandler {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		WindowManager.getInstance().createTableDetailsView(e.getActionCommand());
+		WindowManager.getInstance().createTableDetailsView(TableDAO.getInstance().getTable(e.getActionCommand()));
 	}
 }

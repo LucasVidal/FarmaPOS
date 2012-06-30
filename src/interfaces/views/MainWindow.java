@@ -4,7 +4,6 @@ import interfaces.eventHandlers.AbstractEventHandler;
 import interfaces.eventHandlers.MainWindowEventHandler;
 
 import java.awt.BorderLayout;
-import java.awt.Frame;
 
 import javax.swing.JButton;
 
@@ -20,17 +19,15 @@ public class MainWindow extends AbstractWindow{
 	private AbstractEventHandler handler; 
 
 	public MainWindow() {
+		super();
 		this.handler = MainWindowEventHandler.getInstance();
 		this.handler.setFrame(this);
 		
 		setTitle("FarmaPOS");
-		setSize(300, 200);
-		setLocationRelativeTo(null);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setVisible(true);
-		this.setResizable(false);
-		this.setExtendedState(this.getExtendedState() | Frame.MAXIMIZED_BOTH);
+
 		this.loadTables();
+		
+		this.setVisible(true);
 	}
 
 	public void loadTables() {

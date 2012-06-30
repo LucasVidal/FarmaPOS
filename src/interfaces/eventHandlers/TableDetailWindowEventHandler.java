@@ -8,7 +8,7 @@ public class TableDetailWindowEventHandler extends AbstractEventHandler {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.frame.dispose();
+		this.frame.setVisible(false);
 	}
 
 	public static TableDetailWindowEventHandler getInstance() {
