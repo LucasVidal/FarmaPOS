@@ -2,13 +2,13 @@ package controller;
 
 import java.util.ArrayList;
 
-import log.ActionLog;
 import model.AbstractTableState;
 import model.Commerce;
 import model.ItemOnTable;
 import model.Measures;
 import model.Room;
 import model.Table;
+import model.log.ActionLog;
 
 public class TableBuilder {
 	private Table table;

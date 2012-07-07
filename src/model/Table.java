@@ -3,9 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-import log.ActionLog;
-import log.AddItemToTableActionLog;
-import log.RemoveItemFromTableActionLog;
+import model.log.ActionLog;
+import model.log.AddItemToTableActionLog;
+import model.log.RemoveItemFromTableActionLog;
 import exceptions.*;
 
 public class Table {

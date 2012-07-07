@@ -17,6 +17,10 @@ import javax.swing.border.EmptyBorder;
 
 public class SaloonFrame extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4620446598669105630L;
 	private JPanel contentPane;
 	private ActionListener tableEventHandler;
 	
@@ -60,11 +64,16 @@ public class SaloonFrame extends JFrame {
 		JPanel panelSillones = new JPanel();
 		JPanel panelFumancheros = new JPanel();
 		JPanel panelVereda = new JPanel();
-		
 		JPanel panelSaloon = new JPanel();
 		
 		
 		tabbedPane.addTab("Salon", null, panelSaloon, null);
+		tabbedPane.addTab("Sillones", null, panelSillones, null);
+		tabbedPane.addTab("Fumancheros", null, panelFumancheros, null);
+		tabbedPane.addTab("Vereda", null, panelVereda, null);
+
+		
+		/* SALON */
 		panelSaloon.setLayout(null);
 		
 		this.tableEventHandler = TableEventHandler.getInstance();
@@ -87,8 +96,6 @@ public class SaloonFrame extends JFrame {
 		TableButton tableButton_11 = 	TableButtonFactory.createTableButton("11",this.tableEventHandler);
 		TableButton tableButton_12 = 	TableButtonFactory.createTableButton("12",this.tableEventHandler);
 		TableButton tableButton_12A = 	TableButtonFactory.createTableButton("12A",this.tableEventHandler);
-		
-		
 		
 		tableButton_1.setBounds(10, 164, 70, 70);
 		tableButton_1A.setBounds(94, 164, 70, 70);
@@ -127,13 +134,9 @@ public class SaloonFrame extends JFrame {
 		panelSaloon.add(tableButton_11);
 		panelSaloon.add(tableButton_12);
 		panelSaloon.add(tableButton_12A);
-		
-		tabbedPane.addTab("Sillones", null, panelSillones, null);
-		tabbedPane.addTab("Fumancheros", null, panelFumancheros, null);
-		tabbedPane.addTab("Vereda", null, panelVereda, null);
-		
-		
 
-		
+		/* SILLONES */
+		/* FUMANCHEROS */
+		/* VEREDA */	
 	}
 }

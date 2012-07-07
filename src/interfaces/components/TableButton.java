@@ -32,13 +32,9 @@ public class TableButton extends JButton {
 		return table;
 	}
 
-	public void openTable()
+	public void openTable() throws CouldNotOpenTableException
 	{
-		try {
-			this.getTable().open();
-		} catch (CouldNotOpenTableException e) {
-			e.printStackTrace();
-		}
+		this.getTable().open();
 		
 		this.setIcon(this.getTable().getState().getIcon());
 	}
