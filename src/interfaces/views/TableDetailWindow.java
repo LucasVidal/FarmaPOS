@@ -1,20 +1,18 @@
 package interfaces.views;
 
 import interfaces.eventHandlers.AbstractEventHandler;
-import interfaces.eventHandlers.TableDetailWindowEventHandler;
+import interfaces.eventHandlers.TableEventHandler;
 
-import java.awt.BorderLayout;
-import java.lang.reflect.Array;
-
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JList;
-
-import exceptions.CouldNotOpenTableException;
-import exceptions.TableIsNotOpenException;
 
 import model.Item;
 import model.ItemOnTable;
 import model.Table;
+import exceptions.CouldNotOpenTableException;
+import exceptions.TableIsNotOpenException;
 
 public class TableDetailWindow extends AbstractWindow{
 
@@ -24,17 +22,21 @@ public class TableDetailWindow extends AbstractWindow{
 	private static final long serialVersionUID = 1L;
 	private AbstractEventHandler handler;
 	private Table table;
+	private JList<String> entries;
 	
 	public TableDetailWindow() {
-		this.handler = TableDetailWindowEventHandler.getInstance();
+		this.handler = TableEventHandler.getInstance();
 		this.handler.setFrame(this);
 		this.setVisible(true);
 		
 		JButton b = new JButton("Volver");
 		b.setBounds(100,100,100,100);
 		b.addActionListener(this.handler);
-	//	this.getContentPane().add(b,BorderLayout.PAGE_START);
 		
+		JLabel a = new JLabel("TEST");
+		this.getContentPane().add(a);
+		this.getContentPane().add(b);
+//		this.getContentPane().add(this.entries);
 	}
 
 	public TableDetailWindow(Table tableReference) {
@@ -56,9 +58,12 @@ public class TableDetailWindow extends AbstractWindow{
 			ItemOnTable [] items = this.table.getContent().toArray(new ItemOnTable[table.getContent().size()]);
 			
 			System.out.print("Hay "+items.length+" elementos");
-			JList<ItemOnTable> entries = new JList<ItemOnTable>(items);
-			
-			this.getContentPane().add(entries, BorderLayout.PAGE_START);
+			//JList<ItemOnTable> entries = new JList<ItemOnTable>(items);
+			DefaultListModel<String> model = new DefaultListModel<String>();
+			model.addElement("uno");
+			model.addElement("dos");
+			model.addElement("tres");
+			this.entries = new JList<String> (model);
 		}
 		this.setTitle("Table details for: "+tableReference.getName());
 	}

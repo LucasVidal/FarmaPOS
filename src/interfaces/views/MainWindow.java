@@ -1,53 +1,67 @@
 package interfaces.views;
 
-import interfaces.eventHandlers.AbstractEventHandler;
-import interfaces.eventHandlers.MainWindowEventHandler;
 
-import java.awt.BorderLayout;
+import java.awt.EventQueue;
 
-import javax.swing.JButton;
+import javax.swing.JFrame;
 
 import model.Commerce;
 import model.Measures;
 import model.Room;
-import model.Table;
+import controller.TableBuilder;
 
-public class MainWindow extends AbstractWindow{
+public class MainWindow {
 
-	private static final long serialVersionUID = -8429391328345693577L;
-	
-	private AbstractEventHandler handler; 
+	private JFrame frame;
 
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					MainWindow window = new MainWindow();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
 	public MainWindow() {
-		super();
-		this.handler = MainWindowEventHandler.getInstance();
-		this.handler.setFrame(this);
-		
-		setTitle("FarmaPOS");
-
-		this.loadTables();
-		
-		this.setVisible(true);
+		initialize();
 	}
 
-	public void loadTables() {
-		for (Room r : Commerce.getInstance().getRooms())
-			for (Table t : r.getTables())
-				this.addTable(t);
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	private void addTable(Table t) {
-		Measures l = this.scaleMeasures(t.getLocation());
-		JButton b = new JButton(t.getName());
-		b.setBounds(l.getX(),l.getY(),l.getWidth(),l.getHeight());
+	
+	public static void initializeSaloon()
+	{
+		Room r = new Room ("Salon 1");
 		
-		this.getContentPane().add(b,BorderLayout.NORTH);
-		b.setActionCommand(t.getId()); //The button should be bounded to the table in a JButton subclass instead of using this string.
-		b.addActionListener(this.handler);
+		
+		r.addTables(new TableBuilder().withRoom(r).withName("Mesa 1").withLocation(new Measures(10,10,10,10)).build(),
+					new TableBuilder().withRoom(r).withName("Mesa 2").withLocation(new Measures(22,10,10,10)).build(),
+					new TableBuilder().withRoom(r).withName("Mesa 3").withLocation(new Measures(34,10,10,10)).build(),
+					new TableBuilder().withRoom(r).withName("Mesa 4").withLocation(new Measures(10,22,10,10)).build(),
+					new TableBuilder().withRoom(r).withName("Mesa 5").withLocation(new Measures(22,22,10,10)).build(),
+					new TableBuilder().withRoom(r).withName("Mesa 6").withLocation(new Measures(34,22,10,10)).build());
+		
+		Commerce.getInstance().addRoom(r);
+		
 	}
 	
-	public Measures scaleMeasures(Measures m)
-	{
-		return new Measures(m.getX()*X_FACTOR,m.getY()*Y_FACTOR,m.getWidth()*X_FACTOR,m.getHeight()*Y_FACTOR);
-	}
 }
+

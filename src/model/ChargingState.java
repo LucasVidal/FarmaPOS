@@ -2,6 +2,9 @@ package model;
 
 import java.awt.Color;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+
 public class ChargingState extends AbstractTableState{
 
 	@Override
@@ -15,4 +18,9 @@ public class ChargingState extends AbstractTableState{
 		return new ClosedState();
 	}
 	
+	@Override
+	public Icon getIcon() {
+		return new ImageIcon(FreeState.class.getResource("/images/charging_table_state.png"));
+	}
+
 }

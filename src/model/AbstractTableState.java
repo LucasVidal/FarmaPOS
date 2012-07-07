@@ -2,12 +2,16 @@ package model;
 
 import java.awt.Color;
 
-import exceptions.*;
+import javax.swing.Icon;
+
+import exceptions.CouldNotChargeException;
+import exceptions.CouldNotOpenTableException;
+import exceptions.TableIsNotChargingException;
 
 public abstract class AbstractTableState {
-
-	public abstract Color getColor();
 	
+	public abstract Color getColor();
+
 	public static AbstractTableState getDefaultState() {
 		return new FreeState();
 	}
@@ -28,5 +32,6 @@ public abstract class AbstractTableState {
 		throw new CouldNotChargeException();
 	}
 
-	
+	public abstract Icon getIcon();
+		
 }
