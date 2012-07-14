@@ -4,7 +4,6 @@ import interfaces.components.TableButton;
 import interfaces.components.TableButtonFactory;
 import interfaces.eventHandlers.TableEventHandler;
 
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
@@ -23,22 +22,6 @@ public class SaloonFrame extends JFrame {
 	private static final long serialVersionUID = 4620446598669105630L;
 	private JPanel contentPane;
 	private ActionListener tableEventHandler;
-	
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					SaloonFrame frame = new SaloonFrame();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

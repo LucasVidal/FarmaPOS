@@ -28,5 +28,4 @@ public class TableEventHandler extends AbstractEventHandler {
 			INSTANCE = new TableEventHandler();
 		return INSTANCE;
 	}
-
 }
