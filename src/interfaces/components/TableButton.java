@@ -1,5 +1,7 @@
 package interfaces.components;
 
+import interfaces.views.TableDetailFrame;
+
 import javax.swing.JButton;
 
 import model.Table;
@@ -35,7 +37,7 @@ public class TableButton extends JButton {
 	public void openTable() throws CouldNotOpenTableException
 	{
 		this.getTable().open();
-		
-		this.setIcon(this.getTable().getState().getIcon());
+		TableDetailFrame.load(this.table);
+		this.setIcon(this.getTable().getState().getIcon());			
 	}
 }
