@@ -1,4 +1,4 @@
 FarmaPOS
 ========
 
-TPV para la farmacia
+TPV para la farmaciaa
