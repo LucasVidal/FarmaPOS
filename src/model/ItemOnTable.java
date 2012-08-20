@@ -49,4 +49,9 @@ public class ItemOnTable {
 		
 		this.quantity-=quantity;
 	}
+	
+	public String toString()
+	{
+		return getItem().getName()+ " " + getQuantity();
+	}
 }

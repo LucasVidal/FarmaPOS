@@ -1,5 +1,7 @@
 package interfaces.components;
 
+import interfaces.eventHandlers.TableEventHandler;
+
 import java.awt.Font;
 import java.awt.event.ActionListener;
 
@@ -12,7 +14,7 @@ public final class TableButtonFactory {
 	/**
 	 * @wbp.factory
 	 */
-	public static TableButton createTableButton(String name, ActionListener listener) {
+	public static TableButton createTableButton(String name) {
 		TableButton tb = new TableButton();
 		tb.setText(name);
 		tb.setTableId(name);
@@ -23,7 +25,7 @@ public final class TableButtonFactory {
 		tb.setHorizontalTextPosition(JButton.CENTER);
 		tb.setVerticalTextPosition(JButton.CENTER);
 		
-		tb.addActionListener(listener);
+		tb.addActionListener(TableEventHandler.getInstance());
 		//tableButton.set
 		return tb;
 	}

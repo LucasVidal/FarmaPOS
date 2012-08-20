@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -47,14 +48,6 @@ public class Commerce {
 		INSTANCE.getRooms().add(r);
 	}
 
-	public static Commerce getINSTANCE() {
-		return INSTANCE;
-	}
-
-	public static void setINSTANCE(Commerce iNSTANCE) {
-		INSTANCE = iNSTANCE;
-	}
-
 	public void addProvider(Provider p)
 	{
 		this.getProviders().add(p);
@@ -88,5 +81,16 @@ public class Commerce {
 			INSTANCE.currentCash = getCashForDay(new Date());
 		
 		return INSTANCE.currentCash; 
+	}
+
+	public List<Item> getMenu() {
+		return new ArrayList<Item>(
+			Arrays.asList(
+				new Item("Milanesa de carne",10.0), 
+				new Item("Quilmes",2.0), 
+				new Item("Milanesa de pollo",11.0), 
+				new Item("Jugo de naranja",4.0), 
+				new Item("Coca",5.7)
+			));
 	}
 }

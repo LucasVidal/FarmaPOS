@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<MENU fecha="20/08/2012">
+	<CATEGORIA nombre="Cafetería">
+		<ITEM nombre="Café" precio="5.5"/>
+		<ITEM nombre="Café con crema" precio="6.5"/>
+		<ITEM nombre="Café americano" precio="6"/>
+		<ITEM nombre="Café americano con crema" precio="7"/>
+		<ITEM nombre="Lágrima" precio="6"/>
+		<ITEM nombre="Café doble" precio="9"/>
+		<ITEM nombre="Café doble con crema" precio="10"/>
+		<ITEM nombre="Café con leche (en tazón)" precio="7.8"/>
+		<ITEM nombre="Café con leche con tres medialunas" precio="9.8"/>
+		<ITEM nombre="Cappuccino (café con leche y chocolate)" precio="7.8"/>
+		<ITEM nombre="Submarino (dos barras de chocolate Aguila)" precio="9.8"/>
+		<ITEM nombre="Té" precio="6.8"/>
+		<ITEM nombre="Té con limón o con leche " precio="7.3"/>
+		<ITEM nombre="Té saborizado" precio="7.3"/>
+		<ITEM nombre="Té digestivo" precio="7.3"/>
+		<ITEM nombre="Medialunas c/u" precio="1.6"/>
+		<ITEM nombre="Tostadas con mermelada y/o manteca" precio="6.8"/>
+		<ITEM nombre="Frapuccino con medio brownie" precio="14"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Cafetería Especial">
+		<ITEM nombre="Café La Farmacia" precio="9"/>
+		<ITEM nombre="Café Botica" precio="13"/>
+		<ITEM nombre="Café Vademécum" precio="13"/>
+		<ITEM nombre="Cappuccino a la italiana" precio="13"/>
+		<ITEM nombre="Café Chateau" precio="13"/>
+		<ITEM nombre="Café Escocés" precio="13"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Postres">
+		<ITEM nombre="Manzana con masa streussel" precio="10"/>
+		<ITEM nombre="Manzana con canela y helado o crema chantilly" precio="14"/>
+		<ITEM nombre="Lemon pie" precio="10"/>
+		<ITEM nombre="Ricota" precio="9 "/>
+		<ITEM nombre="Porcion de brownie caserito" precio="7.5"/>
+	</CATEGORIA> 
+	<CATEGORIA nombre="Sándwiches">
+		<ITEM nombre="Jamón cocido y queso" precio="11"/>
+		<ITEM nombre="Jamón crudo y queso" precio="12"/>
+		<ITEM nombre="Salamín y queso " precio="11"/>
+		<ITEM nombre="Lewer y pepino" precio="12"/>
+		<ITEM nombre="Adicional" precio="2.8"/>
+		<ITEM nombre="Adicional tostado" precio="2.8"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Sándwiches calientes">
+		<ITEM nombre="Tostado de miga" precio="11"/>
+		
+		<CATEGORIA nombre="Hamburguesa">
+			<ITEM nombre="Hamburguesa sola" precio="12"/>
+			<ITEM nombre="Hamburguesa con lechuga y tomate " precio="14"/>
+			<ITEM nombre="Hamburguesa con jamón y queso" precio="15"/>
+			<ITEM nombre="Hamburguesa completa" precio="17"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Sándwich de pollo">
+			<ITEM nombre="Sand. pollo solo" precio="15"/>
+			<ITEM nombre="Sand. polo con lechuga y tomate" precio="16"/>
+			<ITEM nombre="Sand. polo con jamón y queso" precio="17"/>
+			<ITEM nombre="Sand. polo completo" precio="19"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Sándwich de lomito">
+			<ITEM nombre="Sand. lomo solo" precio="16"/>
+			<ITEM nombre="Sand. lomo con lechuga y tomate" precio="17"/>
+			<ITEM nombre="Sand. lomo con jamón y queso" precio="18"/>
+			<ITEM nombre="Sand. lomo completo" precio="20"/>
+		</CATEGORIA>
+		
+		<ITEM nombre="Adicional (lechuga. tomate y huevo)" precio="2.8"/>
+	</CATEGORIA>
+
+	<CATEGORIA nombre="Platos rápidos">
+		<CATEGORIA nombre="Milanesa de carne">
+			<ITEM nombre="Mila de carne sola" precio="16.5"/>
+			<ITEM nombre="Mila de carne a caballo" precio="18"/>
+			<ITEM nombre="Mila de carne con papas fritas o puré" precio="19.5"/>
+			<ITEM nombre="Mila de carne napo" precio="21"/>
+			<ITEM nombre="Mila de carne napo con guar." precio="24"/>
+			<ITEM nombre="Mila de carne completa" precio="21"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Milanesas de pollo">
+			<ITEM nombre="Mila de pollo sola" precio="16.5"/>
+			<ITEM nombre="Mila de pollo a caballo" precio="18"/>
+			<ITEM nombre="Mila de pollo con papas fritas o puré" precio="19.5"/>
+			<ITEM nombre="Mila de pollo napo" precio="21"/>
+			<ITEM nombre="Mila de pollo napo con guar." precio="24"/>
+			<ITEM nombre="Mila de pollo completa" precio="21"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Milanesas de soja">
+			<ITEM nombre="Mila de soja sola" precio="15"/>
+			<ITEM nombre="Mila de soja napo" precio="17.5"/>
+			<ITEM nombre="Mila de soja napo con guar." precio="20"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Omelette">
+			<ITEM nombre="Omelette de jamón y queso" precio="16"/>
+			<ITEM nombre="Omelette de arvejas. queso y jamón" precio="17"/>
+			<ITEM nombre="Omelette de choclo. queso" precio="17"/>
+			<ITEM nombre="Omelette español" precio="18"/>
+		</CATEGORIA>
+		
+		<ITEM nombre="Papas fritas" precio="9.5"/>
+		<ITEM nombre="Cazuela de puré de calabaza" precio="9.5"/>
+		
+	</CATEGORIA>
+	<CATEGORIA nombre="Nuestra cocina">
+		<ITEM nombre="Pollo al puerro sobre colchón de papas" precio="24"/>
+		<ITEM nombre="Lomo a la mostaza sobre colchón de papas" precio="25"/>
+		<ITEM nombre="Lomo al plato con papas o puré" precio="24"/>
+		<ITEM nombre="Pollo al plato con papas o puré" precio="23"/>
+		<ITEM nombre="Pollo salteado con vegetales yalmendras" precio="24"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Ensaladas">
+		<ITEM nombre="Mixta" precio="13"/>
+		<ITEM nombre="Zanahoria y huevo" precio="14"/>
+		<ITEM nombre="Waldorf" precio="18"/>
+		<ITEM nombre="Capresse" precio="18.5"/>
+		<ITEM nombre="Carioca" precio="19.5"/>
+		<ITEM nombre="Caesar" precio="20"/>
+		<ITEM nombre="Cubana" precio="19.5"/>
+		<ITEM nombre="Avignon" precio="20.5"/>
+		<ITEM nombre="Del mar" precio="20.5"/>
+		<ITEM nombre="Camping" precio="20.5"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Superpanqueques">
+		<CATEGORIA nombre="Salados">
+			<ITEM nombre="Queso y aceitunas" precio="18"/>
+			<ITEM nombre="Tomate y albahaca" precio="18"/>
+			<ITEM nombre="Tomate y verdeo" precio="18"/>
+			<ITEM nombre="Choclo y huevo" precio="18"/>
+			<ITEM nombre="Arvejas y tomate" precio="18"/>
+			<ITEM nombre="Jamón y champignons" precio="19"/>
+			<ITEM nombre="Jamón crudo y morrones" precio="20"/>
+			<ITEM nombre="Jamón crudo y palmitos" precio="20"/>
+			<ITEM nombre="Jamón crudo y roquefort" precio="20"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Dulces">
+			<ITEM nombre="Dulce de leche" precio="11"/>
+			<ITEM nombre="Con crema y helado" precio="16"/>
+			<ITEM nombre="Con frutas y helado" precio="16"/>
+			<ITEM nombre="Con helado y frutos del bosque" precio="17"/>
+		</CATEGORIA>
+	</CATEGORIA>
+	<CATEGORIA nombre="Picadas">
+		<ITEM nombre="Picada para una persona" precio="39"/>
+		<ITEM nombre="Picada para dos personas" precio="51"/>
+		<ITEM nombre="Picada para cuatro personas" precio="71"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Tapas">
+		<ITEM nombre="Jamón. queso o embutidos" precio="10.5"/>
+		<ITEM nombre="Jamón crudo" precio="12.5"/>
+		<ITEM nombre="Muzzarella al oliva" precio="10.5"/>
+		<ITEM nombre="Berenjenas al escabeche" precio="9.5"/>
+		<ITEM nombre="Daditos de pollo al puerro" precio="12"/>
+		<ITEM nombre="Boncoccinos de lomo a la mostaza" precio="14"/>
+		<ITEM nombre="Aceitunas" precio="9"/>
+		<ITEM nombre="Snacks" precio="3.8"/>
+		<ITEM nombre="Canastita de maní con cáscara" precio="2.8"/>
+		<ITEM nombre="Panera adicional" precio="2.8"/>
+	 </CATEGORIA>
+	<CATEGORIA nombre="Postres">
+		<ITEM nombre="Negrete" precio="14"/>
+		<ITEM nombre="Luna de Venus" precio="15"/>
+		<ITEM nombre="Copa del Sur" precio="15"/>
+		<ITEM nombre="Helado una bochita" precio="10"/>
+		<ITEM nombre="Helado (dos bochas)" precio="14"/>
+		<ITEM nombre="Queso Mar del plata y dulce de batata o membrillo" precio="11"/>
+		<CATEGORIA nombre="Ensalada de frutas">	
+			<ITEM nombre="Ensalada de frutas sola" precio="11"/>
+			<ITEM nombre="Ensalada de frutas con crema" precio="12"/>
+			<ITEM nombre="Ensalada de frutas con una bocha de helado " precio="13"/>
+		</CATEGORIA>
+		<ITEM nombre="Flan casero" precio="10"/>
+		<ITEM nombre="Flan casero con crema chantilly o dulce de leche" precio="11"/>
+		<ITEM nombre="Flan casero mixto" precio="12"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Bebidas sin alcohol">
+		<ITEM nombre="Agua mineral" precio="6"/>
+		<ITEM nombre="Gaseosas" precio="6"/>
+		<ITEM nombre="Agua Ser " precio="6"/>
+		<ITEM nombre="Exprimido de naranja" precio="9"/>
+		<ITEM nombre="Exprimido de pomelo" precio="10"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Licuados">
+		<ITEM nombre="Banana con leche" precio="11.5"/>
+		<ITEM nombre="Durazno" precio="11.5"/>
+		<ITEM nombre="Manzana" precio="11.5"/>
+		<ITEM nombre="Frutilla" precio="11.5"/>
+		<ITEM nombre="Ananá" precio="11.5"/>
+		<ITEM nombre="Melón" precio="11.5"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Rapiditos">
+		<ITEM nombre="Pronto Shake" precio="11"/>
+		<ITEM nombre="Dr. Lemon" precio="11"/>
+		<ITEM nombre="Speed" precio="11"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Cervezas y vinos">
+		<CATEGORIA nombre="Cervezas">
+			<CATEGORIA nombre="Porrones">
+				<ITEM nombre="Porron Quilmes" precio="9.5"/>
+				<ITEM nombre="Porron Heineken" precio="10.5"/>
+				<ITEM nombre="Porron Bock" precio="10"/>
+				<ITEM nombre="Porron Stout" precio="10"/>
+				<ITEM nombre="Porron Lager" precio="10"/>
+				<ITEM nombre="Porron Stella Artois" precio="10"/>
+				<ITEM nombre="Porron Corona" precio="12.5"/>
+				<ITEM nombre="Porron Guines" precio="13"/>
+				<ITEM nombre="Porron Negra Modelo" precio="12"/>
+			</CATEGORIA>
+			<CATEGORIA nombre="Botella">
+				<ITEM nombre="Quilmes Cristal Litro" precio="16"/>
+				<ITEM nombre="Quilmes Bock Litro" precio="16.5"/>
+				<ITEM nombre="Quilmes Stout Litro" precio="16.5"/>
+				<ITEM nombre="Red Lager Litro " precio="16.5"/>
+				<ITEM nombre="Heineken Imperial ¾" precio="16.5"/>
+				<ITEM nombre="Budweiser Litro" precio="16"/>
+				<ITEM nombre="Heineken Litro" precio="17.5"/>
+				<ITEM nombre="Stella Artois Litro" precio="17"/>
+				<ITEM nombre="Iguana Litro" precio="16.5"/>
+				<ITEM nombre="Corona ¾" precio="20"/>
+				<ITEM nombre="Patagonia ¾" precio="19"/>
+			</CATEGORIA>
+		</CATEGORIA>
+		<CATEGORIA nombre="Vinos">
+			<ITEM nombre="Vino en copa" precio="8"/>
+			<CATEGORIA nombre="Tintos">
+				<ITEM nombre="Norton" precio="29"/>
+				<ITEM nombre="Norton chico" precio="19"/>
+				<ITEM nombre="López" precio="30"/>
+				<ITEM nombre="Valmont" precio="35"/>
+				<ITEM nombre="Los Arboles" precio="32"/>
+				<ITEM nombre="Latitud 33" precio="36"/>
+				<ITEM nombre="Terrazas Cabernet Sauvignon" precio="51"/>
+				<ITEM nombre="Trivento by concha y toro" precio="24"/>
+				<ITEM nombre="Tribu by concha y toro " precio="26"/>
+				<ITEM nombre="Tribu chico" precio="18"/>
+				<ITEM nombre="Benjamín nieto" precio="28"/>
+				<ITEM nombre="Benjamín nieto chico" precio="19"/>
+			</CATEGORIA>
+			<CATEGORIA nombre="Vinos Blancos">
+				<ITEM nombre="Etchart Privado torrontés" precio="27"/>
+				<ITEM nombre="Etchart Privado chico" precio="19"/>
+				<ITEM nombre="Norton" precio="29"/>
+				<ITEM nombre="Norton chico" precio="19"/>
+				<ITEM nombre="Colón Sauternes" precio="28"/>
+				<ITEM nombre="San Felipe" precio="30"/>
+				<ITEM nombre="Valmont" precio="35"/>
+				<ITEM nombre="New Age" precio="31"/>
+				<ITEM nombre="Latitud 33" precio="36"/>
+				<ITEM nombre="Terrazas Chardonay " precio="51"/>
+				<ITEM nombre="Trivento by concha y toro" precio="24"/>
+				<ITEM nombre="Tribu by concha y toro" precio="26"/>
+				<ITEM nombre="Tribu chico" precio="18"/>
+			</CATEGORIA>
+		</CATEGORIA>
+	</CATEGORIA>
+	<CATEGORIA nombre="Festivos">
+		<ITEM nombre="Sidra" precio="15"/>
+		<ITEM nombre="Clericóparapreparar" precio="12"/>
+		<ITEM nombre="Sangría para preparar" precio="12"/>
+		<CATEGORIA nombre="Champagnes">
+			<ITEM nombre="Mumm Extra Brut" precio="44"/>
+			<ITEM nombre="Chandon Extra Brut 187 " precio="28"/>
+			<ITEM nombre="Chandon Extra Brut 38" precio="36"/>
+			<ITEM nombre="Chandon Extra Brut " precio="54"/>
+			<ITEM nombre="Champagne Concha y toro" precio="35"/>
+			<ITEM nombre="Champagne Nieto Senetiner" precio="42"/>
+		</CATEGORIA>
+	</CATEGORIA>
+	<CATEGORIA nombre="Otras bebidas">
+		<CATEGORIA nombre="Whisky">
+			<ITEM nombre="Criadores" precio="10"/>
+			<ITEM nombre="Blender’s Pride" precio="11"/>
+			<ITEM nombre="VAT 69" precio="13"/>
+			<ITEM nombre="J y B" precio="15"/>
+			<ITEM nombre="Chivas Regal" precio="27"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Cognac y brandy">
+			<ITEM nombre="Cognac Reserva San Juan" precio="9"/>
+			<ITEM nombre="Brandy Osborn" precio="14"/>
+			<ITEM nombre="Brandy Torres" precio="15"/>
+			<ITEM nombre="Brandy Napoleón" precio="23"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Bebidas Blancas">
+			<ITEM nombre="Vodka" precio="10"/>
+			<ITEM nombre="Tequila" precio="10"/>
+			<ITEM nombre="Tequila José Cuervo" precio="20"/>
+			<ITEM nombre="Pisco" precio="17"/>
+			<ITEM nombre="Ginebra" precio="9"/>
+		</CATEGORIA>
+		<CATEGORIA nombre="Licores">
+			<ITEM nombre="Legui" precio="10"/>
+			<ITEM nombre="Mariposa" precio="10"/>
+			<ITEM nombre="Anís 8 hermanos" precio="10"/>
+			<ITEM nombre="Tía María" precio="10"/>
+			<ITEM nombre="Bailey’s" precio="16"/>
+			<ITEM nombre="Stregga" precio="15"/>
+			<ITEM nombre="Cointreau" precio="20"/>
+			<ITEM nombre="Otros licores" precio="9"/> 
+		</CATEGORIA>
+		<CATEGORIA nombre="Aperitivos">
+			<ITEM nombre="Gancia" precio="11"/>
+			<ITEM nombre="Cinzano" precio="11"/>
+			<ITEM nombre="Cynar" precio="11"/>
+			<ITEM nombre="Martini" precio="11"/>
+			<ITEM nombre="Campari" precio="15"/>
+			<ITEM nombre="Fernet Branca" precio="11"/>
+			<ITEM nombre="Jerez" precio="11"/>
+		</CATEGORIA>
+	</CATEGORIA>
+	<CATEGORIA nombre="Cocktails">
+		<ITEM nombre="Daikiri" precio="15"/>
+		<ITEM nombre="Gancia batido" precio="15"/>
+		<ITEM nombre="Gin tonic" precio="15"/>
+		<ITEM nombre="Fernet cola" precio="16"/>
+		<ITEM nombre="Destornillador" precio="15"/>
+		<ITEM nombre="Blue lagoon" precio="15"/>
+		<ITEM nombre="San Francisco" precio="15"/>
+		<ITEM nombre="Tequila sunrise" precio="15"/>
+		<ITEM nombre="Sex on the beach" precio="15"/>
+		<ITEM nombre="Cool melon" precio="15"/>
+		<ITEM nombre="Tornado" precio="15"/>
+		<ITEM nombre="Pisco Sour" precio="15"/>
+		<ITEM nombre="Caipirinha" precio="15"/>
+		<ITEM nombre="Margarita" precio="15"/>
+		<ITEM nombre="Chacho" precio="15"/>
+		<ITEM nombre="Speed con vodka" precio="16"/>
+	</CATEGORIA>
+	<CATEGORIA nombre="Fondues">
+		<ITEM nombre="Fondue de queso para 2 personas" precio="49"/>
+		<ITEM nombre="Fondue de quesos para 4 personas" precio="73"/>
+		<ITEM nombre="Fondue de chocolate para 2 personas" precio="40"/>
+		<ITEM nombre="Fondue de chocolate para 4 personas" precio="58"/>
+	</CATEGORIA>
+</MENU>

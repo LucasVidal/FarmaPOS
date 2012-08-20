@@ -5,6 +5,8 @@ import java.util.List;
 
 
 public class Category {
+	public static final String NodeName = "CATEGORIA";
+	public static final String ATTRIBUTE_NAME_NAME = "nombre";
 	private Category parent;
 	private List<Category> children;
 	private String name;
@@ -25,7 +27,7 @@ public class Category {
 	}
 
 	public static Category createCategoryInRoot(String name) {
-		Category cat = new Category(Category.rootCategory,new ArrayList<Category>(), name);
+		Category cat = new Category(Category.getRootCategory(),new ArrayList<Category>(), name);
 		Category.rootCategory.addChildCategory(cat);
 		
 		return cat;
@@ -79,6 +81,18 @@ public class Category {
 		StringBuilder s = new StringBuilder(this.name);
 		for (Category c: this.getChildren())
 			s.append("\n(hijos de "+this.name+")  "+c.getStringTree());
+		return s.toString();
+	}
+	
+	public String getStringTreeWithItems()
+	{
+		StringBuilder s = new StringBuilder(this.name);
+		for (Category c: this.getChildren())
+			s.append("\n(hijos de "+this.name+")  <CAT>"+c.getStringTreeWithItems());
+		
+		for (Item i: this.items)
+			s.append("\n(hijos de "+this.name+")  <ITEM>"+i.getName()+ " $"+i.getPrice());
+		
 		return s.toString();
 	}
 

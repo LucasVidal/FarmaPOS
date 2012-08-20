@@ -1,27 +1,35 @@
 package interfaces.views;
 
-import java.awt.BorderLayout;
+import interfaces.components.CustomJList;
+import interfaces.eventHandlers.TableDetailEventHandler;
+
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-
-import model.Table;
 import java.awt.Font;
-import javax.swing.SwingConstants;
-import javax.swing.JSplitPane;
-import javax.swing.JTable;
-import javax.swing.JTree;
-import java.awt.GridLayout;
-import javax.swing.JTextField;
-import javax.swing.JSpinner;
-import javax.swing.JButton;
-import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JSpinner;
+import javax.swing.JTree;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+
+import model.Commerce;
+import model.Item;
+import model.ItemOnTable;
+import model.Table;
+
+import common.Log;
+
+import exceptions.TableIsNotOpenException;
 
 public class TableDetailFrame extends JFrame {
 
@@ -33,12 +41,13 @@ public class TableDetailFrame extends JFrame {
 	protected Table table;
 	private JTree tree;
 	private JPanel panel_item_control;
-	private JSpinner spinner;
+	private JSpinner quantitySpinner;
 	private JButton btnAgregar;
 	private JPanel panel_der;
 	private JPanel panel_izq;
-	private JList item_list;
+	private CustomJList<ItemOnTable> item_list;
 	private JPanel panel_table_summary;
+	private TableDetailEventHandler tableDetailEventHandler;
 
 	/**
 	 * Launch the frame
@@ -61,6 +70,7 @@ public class TableDetailFrame extends JFrame {
 	 */
 	public TableDetailFrame(Table t) {
 		this.table=t;
+		this.tableDetailEventHandler=TableDetailEventHandler.getInstance();
 		
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 728, 560);
@@ -79,10 +89,9 @@ public class TableDetailFrame extends JFrame {
 		panel_main.setBounds(0, 27, 712, 484);
 		contentPane.add(panel_main);
 		GridBagLayout gbl_panel_main = new GridBagLayout();
-		gbl_panel_main.columnWidths = new int[] {356, 356, 0};
-		gbl_panel_main.rowHeights = new int[]{484, 0, 0};
-		gbl_panel_main.columnWeights = new double[]{1.0, 0.0, Double.MIN_VALUE};
-		gbl_panel_main.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel_main.columnWidths = new int[] {450, 300};
+		gbl_panel_main.columnWeights = new double[]{1.0, 0.0};
+		gbl_panel_main.rowWeights = new double[]{0.0};
 		panel_main.setLayout(gbl_panel_main);
 		
 		panel_izq = new JPanel();
@@ -93,8 +102,8 @@ public class TableDetailFrame extends JFrame {
 		gbc_panel_izq.gridy = 0;
 		panel_main.add(panel_izq, gbc_panel_izq);
 		GridBagLayout gbl_panel_izq = new GridBagLayout();
-		gbl_panel_izq.columnWidths = new int[]{356, 0};
-		gbl_panel_izq.rowHeights = new int[] {380, 104};
+		gbl_panel_izq.columnWidths = new int[] {450, 0};
+		gbl_panel_izq.rowHeights = new int[] {400, 30};
 		gbl_panel_izq.columnWeights = new double[]{0.0, Double.MIN_VALUE};
 		gbl_panel_izq.rowWeights = new double[]{0.0, 0.0};
 		panel_izq.setLayout(gbl_panel_izq);
@@ -114,10 +123,22 @@ public class TableDetailFrame extends JFrame {
 		gbc_panel_item_control.gridy = 1;
 		panel_izq.add(panel_item_control, gbc_panel_item_control);
 		
-		spinner = new JSpinner();
-		panel_item_control.add(spinner);
+		quantitySpinner = new JSpinner();
+		panel_item_control.add(quantitySpinner);
 		
 		btnAgregar = new JButton("Agregar");
+		btnAgregar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					TableDetailFrame.this.addElementsToTable();
+				} catch (TableIsNotOpenException e1) {
+					Log.error(e1);
+				}
+			}
+		});
+		
 		panel_item_control.add(btnAgregar);
 		
 		panel_der = new JPanel();
@@ -128,7 +149,7 @@ public class TableDetailFrame extends JFrame {
 		gbc_panel_der.gridy = 0;
 		panel_main.add(panel_der, gbc_panel_der);
 		GridBagLayout gbl_panel_der = new GridBagLayout();
-		gbl_panel_der.columnWidths = new int[] {200};
+		gbl_panel_der.columnWidths = new int[] {300};
 		gbl_panel_der.rowHeights = new int[] {100, 300};
 		gbl_panel_der.columnWeights = new double[]{0.0};
 		gbl_panel_der.rowWeights = new double[]{1.0, 1.0};
@@ -155,7 +176,9 @@ public class TableDetailFrame extends JFrame {
 		lblAbiertaHace.setBounds(10, 63, 70, 14);
 		panel_table_summary.add(lblAbiertaHace);
 		
-		item_list = new JList();
+		item_list = new CustomJList<ItemOnTable>();
+		item_list.initializeWithList(table.getContent());
+		
 		GridBagConstraints gbc_item_list = new GridBagConstraints();
 		gbc_item_list.insets = new Insets(0, 0, 0, 5);
 		gbc_item_list.fill = GridBagConstraints.BOTH;
@@ -163,4 +186,12 @@ public class TableDetailFrame extends JFrame {
 		gbc_item_list.gridy = 1;
 		panel_der.add(item_list, gbc_item_list);
 	}
+
+	protected void addElementsToTable() throws TableIsNotOpenException {
+		//((Double) this.quantitySpinner.getValue())
+		Item i = Commerce.getInstance().getMenu().get(0);
+		ItemOnTable iot= this.table.addItem(i,1.0);
+		this.item_list.addElement(iot);
+	}
+	
 }

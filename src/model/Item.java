@@ -5,6 +5,9 @@ import java.util.List;
 
 public class Item {
 
+	public static final Object NodeName = "ITEM";
+	public static final String ATTRIBUTE_NAME_NAME = "nombre";
+	public static final String ATTRIBUTE_PRICE_NAME = "precio";
 	private String name;
 	private Double price;
 	private Category category;

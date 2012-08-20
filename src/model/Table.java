@@ -32,7 +32,10 @@ public class Table {
 	public void setRoom(Room r) {									this.room=r;						}
 	public void setContent(ArrayList<ItemOnTable> itemsOnTable) {	this.content=itemsOnTable;			}
 
-	public void addItem(Item i, double q) throws TableIsNotOpenException
+	/**
+	 * Returns the created item on table
+	 * */
+	public ItemOnTable addItem(Item i, double q) throws TableIsNotOpenException
 	{
 		if (!this.isOpen())
 			throw new TableIsNotOpenException();
@@ -41,6 +44,8 @@ public class Table {
 		this.content.add(iot);
 		i.notifyItemAdded(iot);
 		this.registerItemAdded(iot);
+		
+		return iot;
 	}
 
 	public void removeItem(Item i, double q) throws TableIsNotOpenException, CantSubstractThatQuantityException {
