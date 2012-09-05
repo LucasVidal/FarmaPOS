@@ -28,6 +28,7 @@ import model.ItemOnTable;
 import model.Table;
 
 import common.Log;
+import db.retrievers.MenuRetriever;
 
 import exceptions.TableIsNotOpenException;
 
@@ -108,12 +109,13 @@ public class TableDetailFrame extends JFrame {
 		gbl_panel_izq.rowWeights = new double[]{0.0, 0.0};
 		panel_izq.setLayout(gbl_panel_izq);
 		
-		tree = new JTree();
+		tree = new JTree(MenuRetriever.getInstance().getMenuAsTreeModel());
 		GridBagConstraints gbc_tree = new GridBagConstraints();
 		gbc_tree.fill = GridBagConstraints.BOTH;
 		gbc_tree.insets = new Insets(0, 0, 5, 0);
 		gbc_tree.gridx = 0;
 		gbc_tree.gridy = 0;
+		
 		panel_izq.add(tree, gbc_tree);
 		
 		panel_item_control = new JPanel();
@@ -185,6 +187,8 @@ public class TableDetailFrame extends JFrame {
 		gbc_item_list.gridx = 0;
 		gbc_item_list.gridy = 1;
 		panel_der.add(item_list, gbc_item_list);
+		
+		
 	}
 
 	protected void addElementsToTable() throws TableIsNotOpenException {

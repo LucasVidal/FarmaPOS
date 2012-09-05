@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.tree.DefaultMutableTreeNode;
+
 
 public class Category {
 	public static final String NodeName = "CATEGORIA";
@@ -99,5 +101,17 @@ public class Category {
 	public void addNewItem(Item item) {
 		item.setCategory(this);
 		this.items.add(item);
+	}
+	
+	public DefaultMutableTreeNode getTreeNode()
+	{
+		DefaultMutableTreeNode node = new DefaultMutableTreeNode(this.getName());
+		for (Category c:this.children)
+			node.add(c.getTreeNode());
+		
+		for (Item i:this.items)
+			node.add(new DefaultMutableTreeNode(i));
+		
+		return node;
 	}
 }

@@ -13,6 +13,12 @@ public class Item {
 	private Category category;
 	private List<AddingItemObserver> addingObservers;
 	
+	@Override
+	public String toString()
+	{
+		return getName();
+	}
+	
 	public String getName() {
 		return name;
 	}
